@@ -1,0 +1,29 @@
+{% extends "talks/base.html" %}
+
+{% block title %}
+  PaTcamp
+{% endblock %}
+
+{% block content %}
+
+  {% for event in events %}
+
+    {{ event.date }}
+
+    {% for talk in event.talks.all %}
+
+      {{ talk.title }}
+
+      {% for speaker in talk.speakers.all %}
+
+        {{ speaker }}
+
+      {% endfor %}
+
+      {{ talk.summary }}
+
+    {% endfor %}    
+
+  {% endfor %}
+
+{% endblock %}
