@@ -7,23 +7,16 @@
 {% block content %}
 
   {% for event in events %}
-
     {{ event.date }}
-
+    <a href="{{ event.get_absolute_url }}">#</a>
     {% for talk in event.talks.all %}
-
       {{ talk.title }}
-
       {% for speaker in talk.speakers.all %}
-
-        {{ speaker }}
-
+        <a href="{{ speaker.get_absolute_url }}">{{ speaker }}</a>
       {% endfor %}
-
       {{ talk.summary }}
-
+      <a href="{{ talk.get_absolute_url }}">></a>
     {% endfor %}    
-
   {% endfor %}
 
 {% endblock %}

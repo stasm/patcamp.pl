@@ -15,6 +15,10 @@ class Speaker(models.Model):
     def __unicode__(self):
         return self.name
 
+    @models.permalink
+    def get_absolute_url(self):
+        return ('talks.views.speaker', (), { 'speaker_id': self.id })
+
 
 class Venue(models.Model):
     name = models.CharField(max_length=80)
@@ -28,6 +32,10 @@ class Venue(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('talks.views.venue', (), { 'venue_id': self.id })
 
 
 class Event(models.Model):
@@ -43,6 +51,10 @@ class Event(models.Model):
 
     def __unicode__(self):
         return str(self.date)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('talks.views.event', (), { 'event_id': self.id })
 
     @property
     def facebook(self):
@@ -70,6 +82,12 @@ class Talk(models.Model):
     def __unicode__(self):
         speakers = [unicode(spk) for spk in self.speakers.all()]
         return "%s (%s)" % (self.title, ", ".join(speakers))
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('talks.views.talk', (), { 
+            'talk_id': self.id,
+            'talk_slug': self.slug })
 
     @property
     def youtube(self):

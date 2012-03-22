@@ -11,11 +11,11 @@ def event(request, event_id):
     e = get_object_or_404(Event, pk=event_id)
     return render(request, "talks/home.html")
 
-def speaker(request):
+def speaker(request, speaker_id):
     pass
 
-def talk(request):
+def talk(request, talk_id):
     pass
 
-def venue(request):
+def venue(request, venue_id):
     pass
