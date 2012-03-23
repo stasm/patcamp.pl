@@ -1,0 +1,14 @@
+{% if event.upcoming == "today" %}
+  <h2>Dziś</h2>
+{% else %}
+  <h2>Niebawem</h2>
+{% endif %}
+
+<section>
+  {{ event.day }}
+  {{ event.time}}
+  <a href="{{ event.get_absolute_url }}">#</a>
+  {% for talk in event.talks.all %}
+    {% include "talks/talk_nopic.inc.html" %}
+  {% endfor %}    
+</section>

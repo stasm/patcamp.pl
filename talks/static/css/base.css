@@ -1,0 +1,29 @@
+body {
+    background-color: #eee;
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    float: left;
+    background-color: #eee;
+}
+
+section {
+    float: left;
+    width: 560px;
+    padding: 20px;
+}
+
+#upcoming {
+    float: left;
+    background-color: #fff;
+}
+
+#past {
+    float: left;
+}
+
+h2 {
+    padding: 20px;
+}

@@ -1,0 +1,7 @@
+{% load extras %}
+<article>
+  {{ talk.speakers.all|join_links }}
+  {{ talk.title }}
+  {{ talk.summary }}
+  <a href="{{ talk.get_absolute_url }}">></a>
+</article>

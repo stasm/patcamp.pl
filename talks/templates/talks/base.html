@@ -2,7 +2,11 @@
 
 <meta charset="utf-8">
 <title>{% block title %} {% endblock %}</title>
+<link rel="stylesheet" type="text/css" href="/static/css/base.css" />
 
 <body>
-  {% block content %} {% endblock %}
+  <h1>PaTcamp</h1>
+  <div id="content">
+    {% block content %} {% endblock %}
+  </div>
 </body>

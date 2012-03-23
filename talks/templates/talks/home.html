@@ -6,17 +6,22 @@
 
 {% block content %}
 
-  {% for event in events %}
-    {{ event.date }}
-    <a href="{{ event.get_absolute_url }}">#</a>
-    {% for talk in event.talks.all %}
-      {{ talk.title }}
-      {% for speaker in talk.speakers.all %}
-        <a href="{{ speaker.get_absolute_url }}">{{ speaker }}</a>
-      {% endfor %}
-      {{ talk.summary }}
-      <a href="{{ talk.get_absolute_url }}">></a>
-    {% endfor %}    
+<div id="upcoming">
+
+  {% for event in upcoming %}
+    {% include "talks/upcoming.inc.html" %}
   {% endfor %}
+
+</div>
+
+<div id="past">
+
+  <h2>Poprzednio</h2>
+
+  {% for event in past %}
+    {% include "talks/past.inc.html" %}
+  {% endfor %}
+
+</div>
 
 {% endblock %}

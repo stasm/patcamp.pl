@@ -1,0 +1,11 @@
+<section>
+  {{ event.date }}
+  <a href="{{ event.get_absolute_url }}">#</a>
+  {% for talk in event.talks.all %}
+    {% if talk.pic %}
+      {% include "talks/talk_pic.inc.html" %}
+    {% else %}
+      {% include "talks/talk_nopic.inc.html" %}
+    {% endif %}
+  {% endfor %}    
+</section>

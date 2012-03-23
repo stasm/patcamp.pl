@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 
 class Speaker(models.Model):
@@ -40,6 +42,7 @@ class Venue(models.Model):
 
 class Event(models.Model):
     date = models.DateTimeField()
+    summary = models.TextField(blank=True)
     location = models.ForeignKey(Venue)
     fb = models.CharField(max_length=20)
     yt = models.CharField(max_length=20, blank=True)
@@ -50,7 +53,7 @@ class Event(models.Model):
         verbose_name_plural = "spotkania"
 
     def __unicode__(self):
-        return str(self.date)
+        return str(self.date.date())
 
     @models.permalink
     def get_absolute_url(self):
@@ -63,6 +66,27 @@ class Event(models.Model):
     @property
     def youtube(self):
         return "http://www.youtube.com/playlist?list=%s" % self.yt
+
+    @property
+    def day(self):
+        return self.date.date().strftime("%d %B")
+
+    @property
+    def time(self):
+        return self.date.strftime("%H:%M")
+
+    def upcoming(self):
+        event_day = self.date.date()
+        today = datetime.date.today()
+        if today < event_day:
+            return "upcoming"
+        elif today == event_day:
+            return "today"
+        else:
+            return False
+
+    def processed(self):
+        return bool(self.yt)
 
 
 class Talk(models.Model):
