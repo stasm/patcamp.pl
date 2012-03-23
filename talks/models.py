@@ -19,7 +19,10 @@ class Speaker(models.Model):
 
     @models.permalink
     def get_absolute_url(self):
-        return ('talks.views.speaker', (), { 'speaker_id': self.id })
+        return ('talks.views.speaker', (), { 
+            'speaker_id': self.id,
+            'speaker_slug': self.slug,
+        })
 
 
 class Venue(models.Model):
@@ -111,7 +114,8 @@ class Talk(models.Model):
     def get_absolute_url(self):
         return ('talks.views.talk', (), { 
             'talk_id': self.id,
-            'talk_slug': self.slug })
+            'talk_slug': self.slug,
+        })
 
     @property
     def youtube(self):
