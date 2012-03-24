@@ -11,3 +11,12 @@ def join_links(value):
         link = """<a href="%s">%s</a>""" % (el.get_absolute_url(), el)
         links.append(link)
     return mark_safe(", ".join(links))
+
+@register.filter
+def images(value):
+    """Shows images related to the elements of the list."""
+    imgs = []
+    for el in value:
+        img = """<img src="%s">""" % el.pic.url
+        imgs.append(img)
+    return mark_safe("".join(imgs))

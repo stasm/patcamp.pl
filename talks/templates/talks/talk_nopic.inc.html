@@ -1,7 +1,14 @@
 {% load extras %}
-<article>
-  {{ talk.speakers.all|join_links }}
-  {{ talk.title }}
-  {{ talk.summary }}
-  <a href="{{ talk.get_absolute_url }}">></a>
+<article class="nopic">
+  <div class="speaker_pics">
+    {{ talk.speakers.all|images }}
+  </div>
+  <div class="talk">
+    <h3>{{ talk.title }}</h3>
+    <p>{{ talk.speakers.all|join_links }}</p>
+    <p>
+      {{ talk.summary }}
+      <a href="{{ talk.get_absolute_url }}">więcej...</a>
+    </p>
+  </div>
 </article>

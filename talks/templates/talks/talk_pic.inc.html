@@ -1,8 +1,9 @@
-{% load extras %}
-<article>
-  <img src="{{ talk.pic.url }}">
-  {{ talk.speakers.all|join_links }}
-  {{ talk.title }}
-  {{ talk.summary }}
-  <a href="{{ talk.get_absolute_url }}">></a>
+<article class="pic">
+  <a href="{{ talk.get_absolute_url }}">
+    <img src="{{ talk.pic.url }}">
+    <p>
+      {{ talk.speakers.all|join:", " }}:
+      {{ talk.title }}
+    </p>
+  </a>
 </article>

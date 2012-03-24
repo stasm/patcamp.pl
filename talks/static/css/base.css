@@ -9,10 +9,24 @@ body {
     background-color: #eee;
 }
 
+h1 {
+    margin: 0;
+    padding: 40px;
+}
+
+h2 {
+    margin: 0;
+    padding: 40px 40px 0;
+}
+
+h3 {
+    margin: 0;
+}
+
 section {
     float: left;
-    width: 560px;
-    padding: 20px;
+    width: 500px;
+    padding: 40px;
 }
 
 #upcoming {
@@ -24,6 +38,37 @@ section {
     float: left;
 }
 
-h2 {
-    padding: 20px;
+article {
+    margin: 20px 0;
+}
+
+article.pic {
+    position: relative;
+    width: 375px;
+    height: 281px;
+}
+
+article.pic p {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, .8);
+    color: #eee;
+}
+
+article.nopic {
+    float: left;
+    margin-bottom: 40px;
+}
+
+div.speaker_pics {
+    float: left;
+    width: 96px;
+}
+
+article.nopic div.talk {
+    padding-left: 114px;
 }
