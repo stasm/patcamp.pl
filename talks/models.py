@@ -1,6 +1,7 @@
 import datetime
 
 from django.db import models
+from django.utils.safestring import mark_safe
 
 class Speaker(models.Model):
     name = models.CharField(max_length=80)
@@ -124,4 +125,28 @@ class Talk(models.Model):
     @property
     def youtube_playlist(self):
         return "http://youtu.be/%s?list=%s" % (self.yt, self.event.yt)
+
+    def youtube_embed(self):
+        return mark_safe("""
+            <iframe width="560" height="315"
+              src="http://www.youtube.com/embed/%s" 
+              frameborder="0" allowfullscreen></iframe>
+        """ % self.yt)
+
+    def facebook_comments(self):
+        return mark_safe("""
+            <div class="fb-comments"
+              data-href="http://patcamp.pl%s"
+              data-num-posts="2" 
+              data-width="560"></div>
+        """ % self.get_absolute_url())
+
+    def facebook_like(self):
+        return mark_safe("""
+            <div class="fb-like" 
+              data-href="http://patcamp.pl%s"
+              data-send="false"
+              data-width="560"
+              data-show-faces="true"></div>
+        """ % self.get_absolute_url())
 

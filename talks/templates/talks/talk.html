@@ -1,0 +1,37 @@
+{% extends "talks/base.html" %}
+{% load extras %}
+
+{% block title %}
+  {{ talk.title }} - PaTcamp {{ talk.event.day }}
+{% endblock %}
+
+{% block content %}
+
+<div id="detail">
+
+  <section>
+    <h2>{{ talk.title }}</h2>
+    <p>{{ talk.speakers.all|join_links }}</p>
+    <article class="vid">
+      {% if talk.yt %}
+        {{ talk.youtube_embed }}
+        <p>{{ talk.summary }}</p>
+      {% elif talk.pic %}
+      <img src="{{ talk.pic.url }}">
+        <p>{{ talk.summary }}</p>
+      {% else %}
+        <div class="speaker_pics">
+          {{ talk.speakers.all|images }}
+        </div>
+        <p class="summary nopic">{{ talk.summary }}</p>
+      {% endif %}
+    </article>
+    {{ talk.facebook_like }}
+  </section>
+  <section>
+    {{ talk.facebook_comments }}
+  </section>
+
+</div>
+
+{% endblock %}

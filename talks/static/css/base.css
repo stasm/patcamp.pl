@@ -28,8 +28,12 @@ section {
     padding: 40px;
 }
 
-#upcoming section {
+#upcoming section, #detail section {
     width: 560px;
+}
+
+#detail section {
+    float: none;
 }
 
 #upcoming, #detail {
@@ -72,6 +76,6 @@ div.speaker_pics {
     width: 96px;
 }
 
-article.nopic div.talk {
+article.nopic div.talk, .summary.nopic {
     padding-left: 114px;
 }
