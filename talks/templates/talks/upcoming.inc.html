@@ -1,15 +1,14 @@
-<h2>
-  {% if event.upcoming == "today" %}
-    Już dziś: 
-  {% else %}
-    Już niebawem: 
-  {% endif %}
-  <a href="{{ event.get_absolute_url }}">
-    {{ event.day }} o {{ event.time }}
-  </a>
-</h2>
-
 <section>
+  <h2>
+    {% if event.upcoming == "today" %}
+      Już dziś: 
+    {% else %}
+      Już niebawem: 
+    {% endif %}
+    <a href="{{ event.get_absolute_url }}">
+      {{ event.day }} o {{ event.time }}
+    </a>
+  </h2>
   {% for talk in event.talks.all %}
     {% include "talks/talk_nopic.inc.html" %}
   {% endfor %}    

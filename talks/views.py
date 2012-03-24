@@ -12,9 +12,11 @@ def home(request):
             upcoming.append(e)
         else:
             past.append(e)
+    width = 640 * len(upcoming) + 455 * len(past)
     return render(request, "talks/home.html", {
         'upcoming': upcoming,
         'past': past,
+        'width': width,
         })
 
 def event(request, event_id):

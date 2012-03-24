@@ -51,7 +51,7 @@ class Event(models.Model):
     yt = models.CharField(max_length=20, blank=True)
 
     class Meta:
-        ordering = ("date",)
+        ordering = ("-date",)
         verbose_name = "spotkanie"
         verbose_name_plural = "spotkania"
 
