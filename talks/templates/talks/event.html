@@ -1,0 +1,26 @@
+{% extends "talks/base.html" %}
+
+{% block title %}
+  PaTcamp {{ event.day }}
+{% endblock %}
+
+{% block content %}
+
+<div id="detail">
+
+  <h2>
+    <a href="{{ event.get_absolute_url }}">{{ event.day }}</a>
+  </h2>
+  <section>
+    {% for talk in event.talks.all %}
+      {% if talk.pic %}
+        {% include "talks/talk_pic.inc.html" %}
+      {% else %}
+        {% include "talks/talk_nopic.inc.html" %}
+      {% endif %}
+    {% endfor %}    
+  </section>
+
+</div>
+
+{% endblock %}

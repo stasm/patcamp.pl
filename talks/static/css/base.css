@@ -29,7 +29,7 @@ section {
     padding: 40px;
 }
 
-#upcoming {
+#upcoming, #detail {
     float: left;
     background-color: #fff;
 }

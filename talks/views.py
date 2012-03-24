@@ -19,7 +19,9 @@ def home(request):
 
 def event(request, event_id):
     e = get_object_or_404(Event, pk=event_id)
-    return render(request, "talks/home.html")
+    return render(request, "talks/event.html", {
+        'event': e,
+        })
 
 def speaker(request, speaker_id):
     pass
