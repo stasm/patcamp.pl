@@ -12,6 +12,18 @@
     <h2>
       <a href="{{ event.get_absolute_url }}">{{ event.day }}</a>
     </h2>
+    <article class="info">
+      <dl>
+        <dt>O ktorej?</dt>
+        <dd>{{ event.time }}</dd>
+        <dt>Gdzie?</dt>
+        <dd>
+          <a href="{{ event.location.get_absolute_url }}">
+            {{ event.location.name }}, {{ event.location.address }}
+          </a>
+        </dd>
+      </dl>
+    </article>
     {% for talk in event.talks.all %}
       {% if talk.pic %}
         {% include "talks/talk_pic.inc.html" %}

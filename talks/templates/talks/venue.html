@@ -1,0 +1,25 @@
+{% extends "talks/base.html" %}
+{% load extras %}
+
+{% block title %}
+  {{ venue.name }} - PaTcamp
+{% endblock %}
+
+{% block content %}
+
+<div id="detail">
+
+  <section>
+    <h2>{{ venue.name }}</h2>
+    <article>
+      <p>{{ venue.address }}</p>
+      <p>{{ venue.description }}</p>
+    </article>
+  </section>
+  <section>
+    {{ venue.maps_embed }}
+  </section>
+
+</div>
+
+{% endblock %}

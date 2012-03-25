@@ -30,7 +30,7 @@ class Venue(models.Model):
     name = models.CharField(max_length=80)
     address = models.TextField(blank=True)
     description = models.TextField(blank=True)
-    maps_url = models.URLField(null=True, blank=True)
+    maps_html = models.TextField()
 
     class Meta:
         verbose_name = "miejsce"
@@ -42,6 +42,9 @@ class Venue(models.Model):
     @models.permalink
     def get_absolute_url(self):
         return ('talks.views.venue', (), { 'venue_id': self.id })
+
+    def maps_embed(self):
+        return mark_safe(self.maps_html)
 
 
 class Event(models.Model):
