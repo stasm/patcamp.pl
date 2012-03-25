@@ -11,7 +11,10 @@
 
   <section>
     <h2>{{ talk.title }}</h2>
-    <p>{{ talk.speakers.all|join_links }}</p>
+    <p>
+      {{ talk.speakers.all|join_links }}
+      (<a href="{{ talk.event.get_absolute_url }}">{{ talk.event.day }}</a>)
+    </p>
     <article class="vid">
       {% if talk.yt %}
         {{ talk.youtube_embed }}

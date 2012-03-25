@@ -1,0 +1,35 @@
+{% extends "talks/base.html" %}
+{% load extras %}
+
+{% block title %}
+  {{ speaker.name }} - PaTcamp
+{% endblock %}
+
+{% block content %}
+
+<div id="detail">
+
+  <section>
+    <h2>{{ speaker.name }}</h2>
+    <article>
+      <div class="speaker_pics">
+        <img src="{{ speaker.pic.url }}">
+      </div>
+      <p class="summary nopic">{{ speaker.bio }}</p>
+    </article>
+  </section>
+  <section>
+    <h3>Wystąpnienia</h3>
+    <ul>
+      {% for talk in speaker.talks.all %}
+        <li>
+          <a href="{{ talk.get_absolute_url }}">{{ talk.title }}</a>
+          ({{ talk.event.day }})
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+
+</div>
+
+{% endblock %}

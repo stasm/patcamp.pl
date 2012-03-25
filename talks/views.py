@@ -25,8 +25,11 @@ def event(request, event_id):
         'event': e,
         })
 
-def speaker(request, speaker_id):
-    pass
+def speaker(request, speaker_id, speaker_slug):
+    s = get_object_or_404(Speaker, pk=speaker_id)
+    return render(request, "talks/speaker.html", {
+        'speaker': s,
+        })
 
 def talk(request, talk_id, talk_slug):
     t = get_object_or_404(Talk, pk=talk_id)

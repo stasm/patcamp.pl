@@ -6,6 +6,7 @@ body {
 
 #content {
     float: left;
+    margin: 0 40px 40px 0;
     background-color: #eee;
 }
 
@@ -28,12 +29,17 @@ section {
     padding: 40px;
 }
 
+section:target {
+    background-color: #ffc;
+}
+
 #upcoming section, #detail section {
     width: 560px;
 }
 
 #detail section {
     float: none;
+    clear: both;
 }
 
 #upcoming, #detail {
@@ -74,6 +80,7 @@ article.nopic {
 div.speaker_pics {
     float: left;
     width: 96px;
+    margin-bottom: 20px;
 }
 
 article.nopic div.talk, .summary.nopic {

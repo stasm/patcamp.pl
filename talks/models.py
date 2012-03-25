@@ -99,7 +99,7 @@ class Talk(models.Model):
     summary = models.TextField(blank=True)
     slug = models.SlugField(max_length=200)
     yt = models.CharField(max_length=20, blank=True)
-    speakers = models.ManyToManyField(Speaker)
+    speakers = models.ManyToManyField(Speaker, related_name="talks")
     event = models.ForeignKey(Event, related_name="talks")
     pic = models.ImageField(upload_to="talks/", blank=True)
 

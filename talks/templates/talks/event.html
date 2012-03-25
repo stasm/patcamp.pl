@@ -8,10 +8,10 @@
 
 <div id="detail">
 
-  <h2>
-    <a href="{{ event.get_absolute_url }}">{{ event.day }}</a>
-  </h2>
   <section>
+    <h2>
+      <a href="{{ event.get_absolute_url }}">{{ event.day }}</a>
+    </h2>
     {% for talk in event.talks.all %}
       {% if talk.pic %}
         {% include "talks/talk_pic.inc.html" %}
