@@ -8,7 +8,8 @@ class Speaker(models.Model):
     sort_name = models.CharField(max_length=80)
     slug = models.SlugField(max_length=80)
     bio = models.TextField()
-    pic = models.ImageField(upload_to="speakers/", blank=True)
+    pic = models.ImageField(upload_to="speakers/", blank=True,
+                            help_text="96x96")
 
     class Meta:
         ordering = ("sort_name",)
@@ -30,7 +31,7 @@ class Venue(models.Model):
     name = models.CharField(max_length=80)
     address = models.TextField(blank=True)
     description = models.TextField(blank=True)
-    maps_html = models.TextField()
+    maps_html = models.TextField(help_text="560x350")
 
     class Meta:
         verbose_name = "miejsce"
@@ -51,8 +52,10 @@ class Event(models.Model):
     date = models.DateTimeField()
     summary = models.TextField(blank=True)
     location = models.ForeignKey(Venue)
-    fb = models.CharField(max_length=20)
-    yt = models.CharField(max_length=20, blank=True)
+    fb = models.CharField(max_length=20,
+                          help_text="ID wydarzenia na Facebooku")
+    yt = models.CharField(max_length=20, blank=True,
+                          help_text="ID playlisty na YouTube")
 
     class Meta:
         ordering = ("-date",)
@@ -101,10 +104,12 @@ class Talk(models.Model):
     slug = models.SlugField(max_length=200)
     summary = models.TextField(blank=True)
     slug = models.SlugField(max_length=200)
-    yt = models.CharField(max_length=20, blank=True)
+    yt = models.CharField(max_length=20, blank=True,
+                          help_text="ID nagrania na YouTube")
     speakers = models.ManyToManyField(Speaker, related_name="talks")
     event = models.ForeignKey(Event, related_name="talks")
-    pic = models.ImageField(upload_to="talks/", blank=True)
+    pic = models.ImageField(upload_to="talks/", blank=True,
+                            help_text="375x281")
 
     class Meta:
         verbose_name = "prezentacja"
